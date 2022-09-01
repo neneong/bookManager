@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <%@ include file="menu.jsp" %>
 
-	<p>여기에 오신 것을 환영합니다.</p>
+	<b><p> 양영디지털고등학교 도서관 홈페이지입니다. </p></b>
 <%@ include file="footer.jsp" %>

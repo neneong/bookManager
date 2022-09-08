@@ -95,5 +95,28 @@ public class MemberDAO {
 		return result;
 		
 	}
+	
+	public int insertMember(MemberVO data) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "INSERT INTO lib_member(member_id, member_pwd, member_name, member_addr, member_age) values(?,?,?,?,?)";
+		
+		try {
+			conn = JdbcUtil.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, data.getMemberId());
+			pstmt.setString(2, data.getMemberPwd());
+			pstmt.setString(3, data.getMemberName());
+			pstmt.setString(4, data.getMemberAddr());
+			pstmt.setInt(5, data.getMemberAge());
+			result = pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 
 }

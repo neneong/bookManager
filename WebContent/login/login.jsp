@@ -41,7 +41,7 @@
         <body>
             <h2> 양영디지털 고등학교 도서관 로그인 페이지 </h2>
 
-            <form action="/login" method="get">
+            <form action="/login" method="post">
                 <div class="login_container">
                     <label for=""><b>User ID</b></label>
                     <input type="text" name="id" placeholder="Enter UserID" id="">
@@ -49,11 +49,11 @@
                     <label for=""><b>Password</b></label>
                     <input type="password" name="pwd" placeholder="Enter Password" id="">
                     <input type="submit" value="Login">
-                    <a href="#"> 회원가입 </a>
+                    <a href="/member/register.jsp"> 회원가입 </a>
                 </div>
             </form>
 
-        </body>
+      
 
 
         <%@include file="../footer.jsp" %>

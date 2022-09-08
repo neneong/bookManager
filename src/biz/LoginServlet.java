@@ -38,15 +38,15 @@ public class LoginServlet extends HttpServlet {
 		
 		if(result) {
 			MemberVO vo = new MemberVO();
-			vo.setUserId(id);
-			vo.setUserPwd(pwd);
+			vo.setMemberId(id);
+			vo.setMemberPwd(pwd);
 			
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("loginOK", vo);
 			response.sendRedirect("/login/loginOK.jsp");
 		}else {
-			out.println("<script> alert('È¸¿øÁ¤º¸°¡ ¸ÂÁö ¾Ê½À´Ï´Ù.');history.back();</script>");
+			out.println("<script> alert('È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.');history.back();</script>");
 		}
 	}
 

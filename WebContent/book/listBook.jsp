@@ -11,6 +11,53 @@
 
 %>
 
+	<table width = "800px" border = "1" align="center">
+		<tr>
+			<th>도서번호</th>
+			<th>책이름</th>
+			<th>저자</th>
+			<th>출판사</th>
+			<th>가격</th>
+			<th>대여하기</th>
+		</tr>
+	
+
+	<%
+		if(list != null){
+			for(BookVO data : list){
+		
+	%>
+
+	<tr>
+		<td><%= data.getBookNo() %></td>
+		<td><%= data.getTitle() %></td>
+		<td><%= data.getAuthor() %></td>
+		<td><%= data.getCompany() %></td>
+		<td><%= data.getPrice() %></td>
+		<%
+			if(login == null){
+				out.println("<td></td>");
+			}else{
+				if(data.getRentaled().equals("t")){
+					out.println("<td> 대여중 </td>");
+				}else{
+		%>
+					<td><a href="/rentalBook?bookNo=<%= data.getBookNo() %>"> 대여하기 </a></td>
+		<%
+				}
+
+			}
+		%>
+
+	</tr>
+		
+	<%
+		} //end for
+	} // end if
+	
+	%>	
+
+	</table>
 	
 
 <%@ include file = "../footer.jsp" %>

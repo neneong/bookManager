@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <%@ include file = "../menu.jsp" %>
 
-	<h2>µµ¼­ °Ë»ö</h2>
+	<h2>ë„ì„œ ê²€ìƒ‰</h2>
 	
-	<a href = "/listBook?book_title=all">µµ¼­ ÀüÃ¼ º¸±â</a>
+	<a href = "/listBook?book_title=all">ë„ì„œ ì „ì²´ ë³´ê¸°</a>
 	
 	<br><br>
 	<form action = "/listBook" method = "get">
-		µµ¼­¸í : <input type = "text" name = "book_title">
-		<input type = "submit" value = "°Ë»ö">
-		<input type = "reset" value = "Ãë¼Ò">
+		ë„ì„œëª… : <input type = "text" name = "book_title">
+		<input type = "submit" value = "ê²€ìƒ‰">
+		<input type = "reset" value = "ì·¨ì†Œ">
 	</form>
 
 

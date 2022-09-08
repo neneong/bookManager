@@ -11,8 +11,44 @@
 <h2>도서 대여 결과 화면</h2>
 
 <table width="800px" border="1" align="center">
-    <tr></tr>
+    <tr>
+        <th>사용자ID</th>
+        <th>대출자</th>
+        <th>책이름</th>
+        <th>반납하기</th>
+    </tr>
+
+    <%
+        if(list != null){
+            for(RentVO data : list){
+        
+    %>
+
+    <tr>
+        <td><%=data.getMemberId()%></td>
+        <td><%=data.getMemberName()%></td>
+        <td><%=data.getBookTitle()%></td>
+        <%
+            if(login == null){
+                out.println("<td></td>");
+            }else{
+        %>
+
+        <td><a href="/returnBook?bookNo=<%= data.getBookNo() %>">반납하기</a></td>
+
+        <%
+            }
+        %>
+    </tr>
+
+
+    <%
+        }//end for
+    } // end if
+    
+    %>
+
+
 </table>
 
-    
 <%@ include file = "../footer.jsp" %>

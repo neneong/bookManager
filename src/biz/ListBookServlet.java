@@ -1,6 +1,7 @@
 package biz;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -31,16 +32,18 @@ public class ListBookServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		String key = request.getParameter("book_title");
+		
 		BookDAO dao = new BookDAO();
-		ArrayList<BookVO> list = dao.getBookList();
+		ArrayList<BookVO> list = dao.getBookList(key);
 		
 		if(list != null) {
-			request.setAttribute("booklist", list);
-			
+			request.setAttribute("book_list", list);
 		}
 		
-		request.getRequestDispatcher("/book/bookList.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("/book/listBook.jsp").forward(request, response);
 		
 	}
 

@@ -9,7 +9,7 @@ public class BookDAO {
 		
 	}
 	
-	public ArrayList<BookVO> getBookList(){
+	public ArrayList<BookVO> getBookList(String key){
 		ArrayList<BookVO> list  = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -73,33 +73,33 @@ public class BookDAO {
 		return result;
 	}
 	
-//	public int insertBookData(BookVO data) {
-//		int result = 0;
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		String sql = "insert into bookshop values(?,?,?,?,?)";
-//		
-//		try {
-//			conn = JdbcUtil.getConnection();
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, data.getIsbn());
-//			pstmt.setString(2, data.getTitle());
-//			pstmt.setString(3, data.getAuthor());
-//			pstmt.setString(4, data.getCompany());
-//			pstmt.setInt(5, data.getPrice());
-//			
-//			result = pstmt.executeUpdate();
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			JdbcUtil.close(conn, pstmt, rs);
-//		}
-//		
-//		return result;
-//	}
-//	
+	public int insertBookData(BookVO data) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "insert into bookshop values(?,?,?,?,?)";
+		
+		try {
+			conn = JdbcUtil.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, data.getBookNo());
+			pstmt.setString(2, data.getTitle());
+			pstmt.setString(3, data.getAuthor());
+			pstmt.setString(4, data.getCompany());
+			pstmt.setInt(5, data.getPrice());
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, pstmt, rs);
+		}
+		
+		return result;
+	}
+	
 //	public BookVO getBookData(String isbn){
 //		BookVO vo = null;
 //		Connection conn = null;

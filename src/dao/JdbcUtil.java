@@ -7,7 +7,7 @@ public class JdbcUtil {
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "hr", "hr");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "system", "1234");
 		}catch(Exception e){
 			System.out.println("DB 연결 실패");
 			e.printStackTrace();

@@ -110,5 +110,25 @@ public class RentDAO {
 		return result;
 	}
 	
+	public int deleteRent(int bookNo) {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM rent_book WHERE book_no = ?";
+		
+		try {
+			conn = JdbcUtil.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bookNo);
+			result = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, pstmt);
+		}
+		
+		return result;
+	}
+	
 	
 }

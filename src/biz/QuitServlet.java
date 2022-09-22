@@ -51,7 +51,7 @@ public class QuitServlet extends HttpServlet {
 			}
 			
 			session.setAttribute("quit", msg);
-			response.sendRedirect("./index.jsp");
+			response.sendRedirect("./quitResult.jsp");
 		}
 	}
 

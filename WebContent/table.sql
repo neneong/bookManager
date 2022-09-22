@@ -1,3 +1,5 @@
+drop table bookshop;
+
 create table bookshop(
 	isbn varchar2(15) primary key not null,
 	title varchar2(50) not null,
@@ -19,7 +21,7 @@ select * from bookshop;
 
 drop table lib_member;
 create table lib_member(
-	member_id varchar2(20) constraint member_id pk primary key,
+	member_id varchar2(20) constraint member_id_pk primary key,
 	member_pwd varchar2(20),
 	member_name varchar2(20),
 	member_addr varchar2(50),
@@ -68,7 +70,7 @@ select * from lib_book where title like '%장미%'; /* title 내용 중 장미�
 
 drop table rent_book;
 drop sequence rent_seq;
-create sequenct rent_seq;
+create sequence rent_seq;
 create table rent_book(
 	rent_no number(6) primary key,
 	member_id varchar2(20),
@@ -84,3 +86,7 @@ create table rent_book(
 
 insert into rent_book(rent_no, member_id, book_no, member_name, title) values (rent_seq.nextval, 'candy', '1', '캔디', '모모');
 select * from rent_book order by rent_no asc;
+
+commit;
+
+SELECT * FROM lib_member;

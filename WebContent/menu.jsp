@@ -135,7 +135,7 @@
                         }else{
                     %>
 
-                    <a href="/logout" id = "logout"> 로그아웃 (<%= login.getMemberId() %></a>
+                    <a href="/logout" id = "logout"> 로그아웃 <%= login.getMemberId() %></a>
                     <a href="/book/searchBook.jsp" id="search">도서 검색</a>
                     <a href="/rentalBook" id="rental">도서대출현황</a>
                     <a href="/quit" id="quit">회원탈퇴</a>
